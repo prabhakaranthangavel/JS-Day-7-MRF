@@ -1,0 +1,339 @@
+Content:
+
+1.HOF
+2.MRF
+3.Examples of MRF
+
+*************************************************************************************************************************
+
+what is HOF?
+
+===>HOF stands for High Order Function.
+
+===>If a function has one or more functions inside it,we say to "HOF"    
+===>Similar to function insides more than more functions.
+          ஒரு function க்குள் ஒன்று அல்லது அதற்கு மேற்பட்ட function  கொடுப்பதுதான் Higher Order Function  ஆகும்.
+
+===>Example of HOF ===> MRF
+
+*************************************************************************************************************************
+
+what is MRF?
+
+===>MRF (Map Reduce Filter) : these are HOF(Function inside a function).
+
+===>It's one of the Array Methods.
+
+***Map***
+
+       ***Where use in map?***    
+
+       ===>Double or triple and etc., a logics
+       [1,2,3,4]*2=[2,4,6,8]
+       [1,2,3,4]*3=[3,6,9,12]
+       [1,2,3,4]*4=[4,8,12,16] etc.,
+
+       ===>It iterates/transforms over each and every element in array and produces new array.
+        
+       ===>Add/iterate/pass over an element or value in an array and return the output to a new array. This can be called map.
+           Original Array க்குள் இருக்கும் element or value ஐ add /iterate/pass செய்து output ஐ ஒரு புதிய array க்குள் கொடுக்கும். 
+                             இதனை map எனலாம். 
+
+       ===>Syntax:-
+           var/let/const newarrayname = arrayname.map(we need to pass a function)
+
+       ===>Example 1: Method 1:
+           const arr = [1,2,3,4,5]  
+           function double(ele){
+           return ele*2
+           }
+           const output = arr.map(double)
+           console.log(output);     //[2,4,6,8,10]    
+
+
+       ===>Example 1: Method 2:
+           const arr = [1,2,3,4,5]  
+           const output = arr.map(function(ele){
+           return ele*2
+           })
+           console.log(output);     //[2,4,6,8,10]  
+
+
+       ===>Example 1: Method 3: using Arrow Function
+           const arr = [1,2,3,4,5];
+           const output = arr.map((ele)=>{
+           return ele*2;
+           })                      //[2,4,6,8,10]
+
+
+       ===>Example 1: Method 4: using Arrow Function
+           when there is only one line in function which return something   
+
+           const arr1 = [1,2,3,4,5];
+           const output = arr.map((ele)=>ele*2)   ===>ele is going to arr1 array then multiple for inside the elements.
+           console.log(output);                //[2,4,6,8,10]
+
+       *****************************************************************************************
+
+***Filter*** 
+
+          ===>It is basically used to filter😂.
+
+          ===>It is acutally used to filter elements inside the array.
+              Original array ல் இருந்து set of conditions(Eg:ODD/EVEN) தேவைப்படும் போது filter பயன்படுத்தப்படுகிறது.
+
+          ===>Used to filter/sort only the elements in an Array. This can be called a filter.
+              Original Array ல் இருக்கும் element or value ஐ மட்டும் வடிகட்ட/பிரித்து output ஐ ஒரு புதிய array க்குள் கொடுப்பதற்கு பயன்படுகிறது.
+                                    இதனை filter எனலாம். 
+          
+***Where use in filter?***    
+
+          ===>filter/sort the elements
+              [1,2,3,4] even number=[2,4]
+              [1,2,3,4] odd number=[1,3]
+              [1,2,3,4] greater than number 3=[4] etc.,
+
+          ===>Syntax:-
+              var/let/const newarrayname = arrayname.filter(we need to pass a function)
+
+          ===>Example 1: Print the odd number
+              const arr = [4,3,2,1,5];    
+              function odd(ele){
+              return ele%2 !=0;
+              }
+              const output = arr.filter(odd);
+              console.log(output);              //[3,1,5]
+
+
+          ===>Example 2: Print the even number
+              const arr = [4,3,2,1,5];    
+              const output = arr.filter(function (ele){
+              return ele%2==0;
+              });
+              console.log(output);              //[4,2]
+
+
+          ===>Example 2: Print the odd number using Anonymous function
+              const arr = [4,3,2,1,5];    
+              const output = arr.filter(function{   //just ignored ele name that's anonymous fun
+              return ele%2==0;
+              });
+              console.log(output);              //[4,2]
+
+
+          ===>Example 2: Print the odd number using Arrow function
+              const arr = [4,3,2,1,5];
+              const output = arr.filter((ele)=> ele%2==0);
+              console.log(output);              //[4,2]
+
+
+          ===>Example 2: Print the odd and even number using Arrow function
+              const arr = [4,3,2,1,5];
+              const output = arr.filter((ele)=> ele%2==0);
+              console.log(output); 
+              const output1 = arr.filter((ele)=> ele%2!=0);
+              console.log(output1);             // [ 4, 2 ]
+                                                // [3, 1, 5 ] 
+ 
+
+          ===>Example 3: Method 2:Print the greater than 2 number using Arrow function
+              const arr = [4,3,2,1,5];
+              const output = arr.filter((ele)=> ele>2);
+              console.log(output);              //[ 4, 3, 5 ]
+
+
+
+       *****************************************************************************************
+
+***Reduce***
+
+          ===>This is generally used when we need to take all the elements in the original array and print only a single value subject to a common condition.               This is called reduce.
+          ===>Similar to it is generally used when we have to take all the array elements and print a single value.
+              Original Array ல் உள்ள அனைத்து elements ம் எடுத்து பொதுவான conditionக்கு உட்பட்டு  ஒரு single value ஐ மட்டும் print செய்ய வேண்டியிருக்கும் போது இது பொதுவாகப் பயன்படுகிறது.
+                                     இதனை reduce என்போம்.
+              2+3+4+5+6=20   ===>20 reduce function
+
+          ===>It can be used to take all the element or value in an array and give a common condition to give the output. This can be called reduce.
+​              Original Array க்குள் இருக்கும் அனைத்து element or value ஐ எடுத்துக் கொண்டு பொதுவான ஒரு condition ஐ கொடுத்து output ஐ ஒரு புதிய array க்குள் கொடுக்கும்.
+                                     இதனை reduce எனலாம்.
+
+          ===>Reduce function takes 2 arugument first one if function and second one is any initial value which we need to pass inside the accumulator.
+              (1)(function(acc,curr){      
+                   //block of codes    
+              (2) },initialvalue)           
+
+              acc===>accumulator===>initialvalue
+              curr==>current    ===>currentvalue ===>Input Array க்குள் இருக்கும் element or value ஐ குறிக்கிறது.
+
+          ===>Syntax:-
+              var/let/const newarrayname = arrayname.reduce(function(acc,curr)  
+              {
+                
+                 //block of codes
+
+              },initialvalue)
+
+          
+          ===>Example1:Normal program
+              Print the total value an Array
+
+              const arr = [1,2,3,4,5];
+              let sum =0;
+              for(let i=0;i<arr.length;i++){
+              sum = sum + arr[i]; 
+                }
+              console.log(sum);                 //15
+
+
+           ===>Example1:Normal program using normal function
+               Print the total value an Array
+
+               const arr = [1,2,3,4,5];
+               function total(arr)
+               {
+               let sum =0;
+               for(let i=0;i<arr.length;i++){
+               sum = sum + arr[i]; 
+                }
+                return(sum);
+               }
+               console.log(total(arr));         //15
+
+
+          ===>Example1:Program using reduce function
+              Print the total value an Array
+              var/let/const newarrayname = arrayname.reduce(function(acc,curr)
+              {
+
+              },initialvalue)
+
+              const arr = [1,2,3,4,5];
+              const output = arr.reduce(function(acc,curr){
+              acc= acc+curr;   //sum = sum + arr[i];
+              return acc;      //return(sum);
+              },0)             //0 => initial value
+              console.log(output);               // 15
+
+
+          ===>Example2:Normal program
+              Print the maximum value an Array
+
+              const arr = [1,2,3,4,5,6,7,8,9]
+              let max=0;
+              for(var i=0;i<arr.length;i++){
+                if(arr[i]>max){
+                max = arr[i];
+              }
+              }
+              console.log(max);           //9
+
+
+          ===>Example2:Program with reduce function
+              Print the maximum value an Array
+
+              const arr = [9,2,3,5,6,7,8]
+              var output= arr.reduce(function(acc,curr){
+                if(curr>acc){
+                acc = curr;
+              }
+              return acc; 
+              },0)
+              console.log(output)        //9 
+              
+              Process:
+              if(curr>acc)
+                    //1>0            
+              acc = curr;
+                    //acc=1
+
+              if(curr>acc)
+                    //2>1            
+              acc = curr;
+                    //acc=2
+
+              if(curr>acc)
+                    //3>2            
+              acc = curr;
+                    //acc=3
+     
+              if(curr>acc)
+                    //9>8            
+              acc = curr;
+                    //acc=9              // display the max number           
+       
+*************************************************************************************************************************
+
+===>Example1:API with MRF function    
+
+const users = [
+              {firstName: "Kamal",lastName: "Hasan",age:60},
+              {firstName: "Donald",lastName: "Trump",age:60},
+              {firstName: "Rajini",lastName: "Kanth",age:50},
+              {firstName: "Ajith",lastName: "Kumar",age:40},
+              ];
+    
+//Print the firstName + lastName
+//Using map function
+          
+var output = users.map((x)=>x.firstName +x.lastName)
+console.log(output);
+//[ 'KamalHasan', 'DonaldTrump', 'RajiniKanth', 'AjithKumar' ]
+
+
+//Print the firstName + lastName with space
+//Using map function
+
+var output = users.map((x)=>x.firstName +" "+ x.lastName)
+console.log(output);
+//[ 'Kamal Hasan', 'Donald Trump', 'Rajini Kanth', 'Ajith Kumar' ]
+
+
+//Finding the age example 
+//Using reduce function
+
+var output = users.reduce(function(acc,curr){            
+if(acc[curr.age])                   ===>//initially check wthether age is present or not 
+{               
+acc[curr.age] = ++acc[curr.age];    ===>//already the age is declared in else part then and once again added the age
+                                    ===>{60:2}
+}
+              
+else
+{
+acc[curr.age]=1                     ===>//added in age 1time{60:1,50:1,40:1}  
+}
+
+return acc;
+},{})
+console.log(output);                //{ '40': 1, '50': 1, '60': 2 }
+
+
+//Find out the people who's age is less than 60
+//Using filter function
+
+var output = users.filter((x)=>x.age<60)
+console.log(output);
+//[ { firstName: 'Rajini', lastName: 'Kanth', age: 50 },
+  { firstName: 'Ajith', lastName: 'Kumar', age: 40 } ]
+
+The output will be displayed along with the Object inside the Array.
+output ஆனது Arrayக்குள் உள்ள Object உடன் சேர்த்து காட்டும்.
+
+
+//Find out the firstname of all people who's age is less than 60
+//Using filter and map function
+//it's called chaining method 
+
+var output = users.filter((x)=>x.age<60).map((x)=>x.firstName);
+console.log(output);
+//[ 'Rajini', 'Ajith' ]
+output ஆனது Array ஆக மட்டும் காட்டும்.
+
+*************************************************************************************************************************
+
+***Summary***
+
+===>It will give the output only in the new size without any change in the original array. This also applies to the Map Reduce Filter.
+Original Array ல் எந்தவித மாற்றமும் இல்லாமல் output ஐ மட்டும் புதிய அளவில் வழங்கும்.இது Map Reduce Filter மூன்றுக்கும் பொருந்தும்.
+
+*************************************************************************************************************************
